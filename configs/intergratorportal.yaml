@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: integratorportal
-        image: giladalboher/integratorportal:v1.0.7787183033
+        image: giladalboher/integratorportal:v1.0.7787251527
         ports:
         - containerPort: 3000
         resources:

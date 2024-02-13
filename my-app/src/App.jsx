@@ -12,8 +12,8 @@ import { Login } from './Components/Login/Login';
 import { SignUp } from './Components/SignUp/SignUp';
 import { ProjectSelect } from './Views/ProjectSelect/ProjectSelect';
 import { TasksPage } from './Views/TasksPage/TasksPage';
-import { XrWs } from './Views/Workstations/XrWs/XrWs';
-
+import { XrMain } from './Views/ProjectViews/XR/XrMain';
+import { XrLabs } from './Views/ProjectViews/XR/XrLabs';
 const App = () => {
   
   const [showModal, setShowModal] = useState(false);
@@ -69,7 +69,8 @@ const App = () => {
             <Route path="/tasks" element={<TasksPage />} />
             <Route path="*" element={<NotFound />} />
             { /* Workstations Links */ }
-            <Route path="/xr-workstations" element={<XrWs />} />
+            <Route path="/xr-main" element={<XrMain/>} />
+            <Route path="/xr-labs" element={<XrLabs/>} />
           </Routes>
           {showModal && (
             <Modal showModal={showModal} setShowModal={setShowModal} >

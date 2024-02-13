@@ -38,6 +38,7 @@
     margin: 0 auto;
     transition: ease-in-out 0.1s;
     cursor: pointer;
+    border-radius: 20px;
   }
   .station-name-input{
    display: flex;
@@ -77,3 +78,16 @@
 .delete-icon:hover{
     transform: scale(1.8);
 }  
+.popup-msg-labs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    z-index: 100;
+  }
+  .popup-msg-labs:hover{
+    background-color: #00438b;
+    transition: ease-in-out 0.1s;
+}

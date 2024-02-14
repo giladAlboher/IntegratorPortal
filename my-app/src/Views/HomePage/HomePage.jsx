@@ -6,7 +6,7 @@ export const HomePage = () => {
 
   const menuItems = [
     { label: "ציוד וחומרה", link: "/inventory-list" },
-    { label: "מעקב עמדות", link: "/project-select" },
+    { label: "פרויקטים", link: "/project-select" },
     { label: "משימות", link: "/tasks" },
 ];
 

@@ -6,7 +6,7 @@ import "./StationInfo.css";
 import StationInfoLogo from "../../Assets/StationInfoLogo.png";
 
 export const StationInfo = (props) => {
-  const { items2, setItems2, setWsName } = props; // Make the items and setItems2 props available
+  const { items, setItems, setName } = props;
   const [editMode, setEditMode] = useState(null);
   const [stationName, setStationName] = useState("Your Station Name");
   const [newItem, setNewItem] = useState({
@@ -30,7 +30,7 @@ export const StationInfo = (props) => {
   const handleNameClick = (id) => {
     setEditMode(id);
     // Find the item with the clicked ID and set its name as the current stationName
-    const selectedItem = items2.find((item) => item.id === id);
+    const selectedItem = items.find((item) => item.id === id);
     if (selectedItem) {
       setStationName(selectedItem.name);
     }
@@ -44,7 +44,7 @@ export const StationInfo = (props) => {
     setEditMode(null);
 
     // Update the item's name in the state
-    setItems2((prevItems) =>
+    setItems((prevItems) =>
       prevItems.map((item) =>
         item.id === editMode ? { ...item, name: stationName } : item
       )
@@ -52,21 +52,21 @@ export const StationInfo = (props) => {
   };
 
   const handleSaveNewItem = () => {
-    setItems2((prevItems) => [
+    setItems((prevItems) => [
       ...prevItems,
       {
         id: uuidv4(),
         name: newItem.name,
       }
     ]);
-    console.log(items2);
+    console.log(items);
     setNewItem({ name: "New PC" }); // Clear the newItem after saving
   };
 
   const handleDeleteItem = (id) => {
     const isConfirmed = window.confirm("Are you sure you want to delete?");
     if (!isConfirmed) return;
-    setItems2((prevItems) => prevItems.filter((item) => item.id !== id));
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   const handleShowInfo = (id) => {
@@ -100,11 +100,11 @@ export const StationInfo = (props) => {
         <button className="add-new-button" onClick={handleSaveNewItem}>
           Add New
         </button>
-      <button className="back-btn" onClick={() => setWsName('')}>
-       <BackIconSmall/>
+      <button className="back-btn" onClick={() => setName('')}>
+        <BackIconSmall/>
         </button>
         <div className="station-box">
-          {items2.map((item) => (
+          {items.map((item) => (
             <li key={item.id} className="">
               <span
                 className="delete-icon"
@@ -119,7 +119,7 @@ export const StationInfo = (props) => {
                 alt="StationLogo"
                 onClick={() => handleShowInfo(item.name)}
                 title="" // This is the text that appears when you hover over the image
-                oncontextmenu="return false;" // This prevents the right-click img menu from appearing
+                onContextMenu={(e) => e.preventDefault()} // This prevents the right-click img menu from appearing
               />
               {/* </Link>  */}
 

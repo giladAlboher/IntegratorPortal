@@ -9,10 +9,10 @@ export const ProjectSelect = (props) => {
   
   const backBtn = true; 
   const menuItems = [
-      { label: "Reccelite XR", link: "/xr-workstations" },
-      { label: "Litening", link: "/litening-workstations" },
-      { label: "Blue Bird", link: "/bb-workstations" },
-      { label: "Hydra", link: "/hydra-workstations" },
+      { label: "XR", link: "/xr-main" },
+      { label: "LITE", link: "/lite-labs" },
+      { label: "BB", link: "/bb-labs" },
+      { label: "Hydration", link: "/hyd-labs" },
   ];
   
     return (

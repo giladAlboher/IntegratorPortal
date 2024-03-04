@@ -16,8 +16,8 @@ export const XrLabs= () => {
     return (
         <>
         <div className='page-content'>
-        <h1 style={{ textAlign: "center" }}>XR LABS</h1>
-            {labName && <h2 style={{ textAlign: 'center' }}>Lab Selected: {labName}</h2>} 
+        {!labName && <h1 style={{ textAlign: "center" }}>XR LABS</h1>}
+            {labName && <h1 style={{ textAlign: 'center' }}>Lab Selected: {labName}</h1>} 
             {stationTitleName && <h2 style={{ textAlign: 'center' }}>Station Selected: {stationTitleName}</h2>} 
             {/*  pages content based on states of labName and stationTitleName */ }
             {!labName && <LabSelect items={labItems} setItems={setLabItems} setName={setLabName}/>}

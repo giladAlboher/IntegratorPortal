@@ -1,0 +1,6 @@
+python-telegram-bot
+gitpython
+pytz
+paramiko
+requests
+python-dotenv

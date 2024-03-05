@@ -1,0 +1,13 @@
+version: "3.4"
+services:
+  telegramBotGithubActions:
+    image: "giladalboher/telegram_bot:latest"
+    container_name: "telegram-bot-github-actions"
+    env_file:
+      - ./.env
+    environment:
+      - TOKEN=${TOKEN}
+      - CHAT_IDS=${CHAT_IDS}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - PROJECT_PATH=${PROJECT_PATH}
+    

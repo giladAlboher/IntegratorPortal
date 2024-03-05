@@ -9,7 +9,7 @@ jobs:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
-          to: '@IntegratorPortalCIBot'
+          to: '796199769'
           token: ${{ secrets.BOTTOKEN }}
           message: |
             🚀 *New Commit Made!*

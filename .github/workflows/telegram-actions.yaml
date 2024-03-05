@@ -12,7 +12,7 @@ jobs:
       - name: Select random photo
         id: random_photo
         run: |
-            PHOTO=$(ls tests/*.webp | shuf -n 1)
+            PHOTO=$(ls tests/*.* | shuf -n 1)
             echo "::set-output name=photo::$PHOTO"
         shell: bash
     

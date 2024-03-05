@@ -8,7 +8,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+
+      - name: Select random photo
+        id: random_photo
+        run: |
+            PHOTO=$(ls tests/*.webp | shuf -n 1)
+            echo "::set-output name=photo::$PHOTO"
+        shell: bash
+    
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
@@ -22,6 +29,6 @@ jobs:
             _Repository_: ${{ github.repository }}
             
             [See changes here](https://github.com/${{ github.repository }}/commit/${{github.sha}})
-          photo: tests/gitmeme.webp
+          photo: ${{ steps.random_photo.outputs.photo }}
 
           

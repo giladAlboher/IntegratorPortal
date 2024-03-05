@@ -6,6 +6,9 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
@@ -19,3 +22,6 @@ jobs:
             _Repository_: ${{ github.repository }}
             
             [See changes here](https://github.com/${{ github.repository }}/commit/${{github.sha}})
+          photo: ./gitmeme.webp
+          
+          

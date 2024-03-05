@@ -22,6 +22,6 @@ jobs:
             _Repository_: ${{ github.repository }}
             
             [See changes here](https://github.com/${{ github.repository }}/commit/${{github.sha}})
-          photo: ./gitmeme.webp
-          
+          photo: ./photo/gitmeme.webp
+
           

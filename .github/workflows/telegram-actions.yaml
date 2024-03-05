@@ -10,7 +10,7 @@ jobs:
         uses: appleboy/telegram-action@master
         with:
           to: '@IntegratorPortalCIBot'
-          token: ${{ secrets.BotToken }}
+          token: ${{ secrets.BOTTOKEN }}
           message: |
             🚀 *New Commit Made!*
             _Author_: ${{ github.actor }}

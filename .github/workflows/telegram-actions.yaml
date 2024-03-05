@@ -12,9 +12,10 @@ jobs:
           to: '@IntegratorPortalCIBot'
           token: ${{ secrets.BotToken }}
           message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
+            🚀 *New Commit Made!*
+            _Author_: ${{ github.actor }}
+            _Commit Message_: ${{ github.event.commits[0].message }}
             
-            Repository: ${{ github.repository }}
+            _Repository_: ${{ github.repository }}
             
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            [See changes here](https://github.com/${{ github.repository }}/commit/${{github.sha}})

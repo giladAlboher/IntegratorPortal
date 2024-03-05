@@ -80,7 +80,7 @@ export const LabSelect = (props) => {
     <>
       <div className="station-select-container">
         <div className="popup-msg-labs"> 
-         {msg&&<Msg msg={msg} isError={isError}/>}
+          {msg&&<Msg msg={msg} isError={isError}/>}
         </div>
         <button className="add-new-button" onClick={handleSaveNewItem}>
           Add New

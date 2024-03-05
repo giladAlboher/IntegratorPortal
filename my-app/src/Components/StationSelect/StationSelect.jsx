@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { BackIconSmall } from "../../Assets/BackIconSmall";
 import "./StationSelect.css";
 import WorkstationLogo from "../../Assets/WorkstationLogo.png";
-
+import { Msg } from "../Msg/Msg";
 
 export const StationSelect = (props) => {
   const { items, setItems, setName, labNameRemove } = props; // Make the items and setItems props available
@@ -13,7 +13,9 @@ export const StationSelect = (props) => {
   const [newItem, setNewItem] = useState({
     name: "New Station",
   });
-  
+  const [msg, setMsg] = useState("");
+  const [isError, setIsError] = useState(false);
+
   const handleNameClick = (id) => {
     setEditMode(id);
     // Find the item with the clicked ID and set its name as the current stationName
@@ -24,6 +26,21 @@ export const StationSelect = (props) => {
   };
 
   const handleNameChange = (event) => {
+    if (event.target.value.length > 15) {
+      setIsError(true);
+      setMsg("Name is too long");
+      setTimeout(() => {
+        setMsg("");
+      }, 3000);
+      return;
+    }
+    if (event.target.value.length < 1) {
+      setIsError(true);
+      setMsg("Name is too short");
+      setTimeout(() => {
+        setMsg("");
+      }, 3000);
+    }
     setStationName(event.target.value);
   };
 
@@ -44,7 +61,7 @@ export const StationSelect = (props) => {
       {
         id: uuidv4(),
         name: newItem.name,
-      }
+      },
     ]);
     console.log(items);
     setNewItem({ name: "New Station" }); // Clear the newItem after saving
@@ -62,11 +79,14 @@ export const StationSelect = (props) => {
   return (
     <>
       <div className="station-select-container">
+        <div className="popup-msg-labs">
+          {msg && <Msg msg={msg} isError={isError} />}
+        </div>
         <button className="add-new-button" onClick={handleSaveNewItem}>
           Add New
         </button>
-        <button className="back-btn" onClick={() => labNameRemove('')}>
-        <BackIconSmall/>
+        <button className="back-btn" onClick={() => labNameRemove("")}>
+          <BackIconSmall />
         </button>
         <div className="station-box">
           {items.map((item) => (

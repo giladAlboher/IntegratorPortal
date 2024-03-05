@@ -15,7 +15,7 @@ logging.basicConfig(format='[%(asctime)s : line - %(lineno)4s : %(funcName)25s()
 logging.info("operation system : " + platform.system())
 
 
-# Load environment variables from .env file
+# Load environment variables from .env file and define global variables
 
 # Functions
 def startup():
